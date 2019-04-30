@@ -1,3 +1,4 @@
+require '../lib/card'
 
 class Turn
   attr_reader :guess,
@@ -18,9 +19,9 @@ class Turn
 
   def feedback
     if @guess == @card.answer
-        puts "Correct!"
+        ans = "Correct"
     elsif @guess != @card.answer
-        puts "Incorrect!"
+        ans = "Incorrect!"
     end
   end
 end
