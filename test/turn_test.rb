@@ -4,37 +4,42 @@ require '../lib/turn'
 require '../lib/card'
 
 class TurnTest < Minitest::Test
+  attr_reader :card,
+              :turn
+
+def setup
+    @card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    @turn = Turn.new("Juneau", card)
+  end
 
   def test_it_exists
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
+    expected = Turn
+    actual = turn
     assert_instance_of Turn, turn
   end
 
   def test_card
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
+    expected = turn.card
+    actual = card
 
-    assert_equal turn.card, card
+    assert_equal expected, actual
   end
 
   def test_guess
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
-
-    assert_equal "Juneau", turn.guess
+      expected = turn.guess
+      actual = "Juneau"
+    assert_equal expected, actual
   end
 
   def test_correct?
-    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-    turn = Turn.new("Juneau", card)
-
-    assert_equal true, turn.correct?
+    expected = turn.correct?
+    actual = true
+    assert_true expected
   end
 
 def test_feedback
-  card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-  turn = Turn.new("Juneau", card)
-  assert_equal "Correct", turn.feedback
+  expected = turn.feedback
+  actual = "Correct"
+  assert_equal expected, actual
 end
-end 
+end
