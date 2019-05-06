@@ -54,7 +54,7 @@ class Round
     puts "****** Game over! ******\n"
     puts "You got #{number_correct} out of #{deck.count} for a total score of % #{percent_correct}"
       turns.each do |turn|
-        puts "#{turn.card.category.to_s.capitalize.gsub!("_", " ")}:  % #{percent_correct_by_category(turn.card.category)}"
+        puts "#{turn.card.category}:  % #{percent_correct_by_category(turn.card.category)}"
       end
   end
 end
