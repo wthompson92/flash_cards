@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require '../lib/turn'
 require '../lib/card'
+require '../lib/turn'
 
 class TurnTest < Minitest::Test
   attr_reader :card,
@@ -19,27 +19,27 @@ def setup
   end
 
   def test_card
-    expected = turn.card
-    actual = card
+    expected = card
+    actual = turn.card
 
     assert_equal expected, actual
   end
 
   def test_guess
-      expected = turn.guess
-      actual = "Juneau"
+      expected = "Juneau"
+      actual = turn.guess
+
     assert_equal expected, actual
   end
 
   def test_correct?
-    expected = turn.correct?
-    actual = true
-    assert_true expected
+    actual = turn.correct?
+    assert actual
   end
 
 def test_feedback
-  expected = turn.feedback
-  actual = "Correct"
+  expected = "Correct"
+  actual = turn.feedback
   assert_equal expected, actual
 end
 end
