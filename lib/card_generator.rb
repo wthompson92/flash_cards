@@ -9,19 +9,19 @@ class CardGenerator
     File.read(@filename)
   end
 
-  def by_line
+  def to_lines
     read.split(/\n/)
   end
 
 
-  def by_comma
-    by_line.map do |line|
+  def each_line
+    to_lines.map do |line|
     line.split(",")
     end
   end
 
   def cards
-    by_comma.map do |content|
+    each_line.map do |content|
       question = content[0]
       answer = content[1]
       category = content[2].to_sym
